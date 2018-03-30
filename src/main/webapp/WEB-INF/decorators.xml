@@ -2,13 +2,12 @@
 <decorators defaultdir="/WEB-INF/layout/">
     <excludes>
         <pattern>/static/*</pattern>
-        <pattern>/front/login/home</pattern>
-        <pattern>/front/register/home</pattern>
-        <pattern>/back/login</pattern>
+        <pattern>/front/login</pattern>
+        <pattern>/front/register</pattern>
     </excludes>
 
     <decorator name="back" page="default.jsp">
-        <pattern>/back/**</pattern>
+        <pattern>/front/**</pattern>
     </decorator>
 
 </decorators>

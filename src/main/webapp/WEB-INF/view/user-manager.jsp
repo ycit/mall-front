@@ -16,7 +16,7 @@
 <head>
     <title>用户管理</title>
     <meta charset="utf-8">
-    <link href="${ctx}/static/css/user-manager.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/static/front/css/user-manager.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body id="channel-page">
@@ -211,7 +211,7 @@
     </script>
 
     <content tag="page_script">
-        <script src="${ctx}/static/js/custom/user-manager.js" type="text/javascript"></script>
+        <script src="${ctx}/static/front/js/custom/user-manager.js" type="text/javascript"></script>
     </content>
 
 </body>

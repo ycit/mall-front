@@ -1,5 +1,8 @@
 package com.ycit.bean.modal;
 
+import com.ycit.bean.entity.RegForm;
+import org.springframework.beans.BeanUtils;
+
 /**
  * 用户
  *
@@ -13,6 +16,12 @@ public class User extends Admin {
     private String birthday;
     private String img;
     private int balance;
+
+    public static User fromBean(RegForm regForm) {
+        User user = new User();
+        BeanUtils.copyProperties(regForm, user);
+        return user;
+    }
 
     public String getNickname() {
         return nickname;

@@ -1,5 +1,6 @@
 package com.ycit.config;
 
+import com.ycit.security.AppLogoutFilter;
 import com.ycit.security.AppRealm;
 import com.ycit.security.AppUserFilter;
 import org.apache.shiro.realm.Realm;
@@ -74,6 +75,11 @@ public class AppConfig {
     @Bean(name="app")
     public Filter appFilter() {
         return new AppUserFilter();
+    }
+
+    @Bean(name = "logout")
+    public Filter logoutFilter() {
+        return new AppLogoutFilter();
     }
 
 }

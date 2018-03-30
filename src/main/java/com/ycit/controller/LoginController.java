@@ -1,7 +1,6 @@
 package com.ycit.controller;
 
 import com.ycit.bean.entity.LoginForm;
-import com.ycit.service.AdminService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.stream.Collectors;
 
@@ -27,15 +25,8 @@ import java.util.stream.Collectors;
  * @Date 2018-03-21 12:51
  */
 @Controller
-@RequestMapping("/back")
+@RequestMapping("/front")
 public class LoginController {
-
-    private AdminService adminService;
-
-    @Resource
-    public void setAdminService(AdminService adminService) {
-        this.adminService = adminService;
-    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginHome() {
