@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ycit.mapper.CartMapper">
+    <resultMap id="sea" type="com.ycit.bean.vo.CartVo">
+        <association property="store" javaType="com.ycit.bean.modal.Store">
+            <id property="id" column="store_id"/>
+        </association>
+    </resultMap>
+    <select id="finds" resultType="com.ycit.bean.vo.CartVo" parameterType="com.ycit.bean.modal.Cart">
+        SELECT * FROM goods g, store s
+        where g.store_id = s.store_id
+    </select>
+</mapper>

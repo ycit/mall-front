@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ycit.mapper.AddressMapper">
+    <insert id="insert" parameterType="com.ycit.bean.modal.Address" useGeneratedKeys="true"
+            keyProperty="address.id" keyColumn="address.id">
+        insert into user_address
+        (user_id,name,phone,tel,province_id,province_name,city_id,city_name,
+        district_id,district_name,detail)
+        values
+        (#{address.userId}, #{address.name}, #{address.phone}, #{address.tel},#{address.provinceId},
+        #{address.provinceName},#{address.cityId},#{address.cityName},#{address.districtId},
+        #{address.districtName},#{address.detail})
+    </insert>
+
+    <update id="updateById" parameterType="com.ycit.bean.modal.Address">
+        update user_address
+        set name = #{address.name},phone = #{address.phone},tel = #{address.tel},
+        detail = #{address.detail},province_id = #{address.provinceId},province_name=#{address.provinceName},
+        city_id = #{address.cityId},city_name=#{address.cityName},district_id = #{address.districtId},
+        district_name = #{address.districtName}, modify_time = sysdate()
+        where id = #{address.id}
+    </update>
+</mapper>

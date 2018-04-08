@@ -1,0 +1,55 @@
+.store-results .portlet-body .item{
+    width: 200px;
+    height: 100px;
+    padding: 2px;
+    float: left;
+}
+
+.store-txt span {
+    width: 430px;
+    float: left;
+    color: #999;
+}
+
+.store-txt {
+    width: 430px;
+    float: left;
+    padding-left: 30px;
+    line-height: 28px;
+    font-size: 14px;
+    margin: 10px 5px 20px 7px;
+}
+
+.store-img {
+    width: 200px;
+    height: 100px;
+    padding: 2px;
+    float: left;
+    border: 1px #e1e1e1 solid;
+    margin: 10px 5px 20px 80px;
+}
+
+.portlet-body .row {
+    border: 1px #e1e1e1 solid;
+    margin-right: auto!important;
+    margin-left: auto!important;
+}
+
+.item-name {
+    font-size: 15px;
+    width: 430px;
+    float: left;
+    color: #333 !important;
+}
+
+.store-results .portlet-body {
+    margin-bottom: 15px;
+}
+
+.not-found {
+    height: 200px;
+    background: url("../img/empty.jpg")no-repeat center center;
+    background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -webkit-background-size: auto 100%;
+}

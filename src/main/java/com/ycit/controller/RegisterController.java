@@ -1,6 +1,6 @@
 package com.ycit.controller;
 
-import com.ycit.bean.entity.RegForm;
+import com.ycit.bean.criteria.RegForm;
 import com.ycit.bean.modal.User;
 import com.ycit.service.UserService;
 import org.apache.commons.lang.StringUtils;

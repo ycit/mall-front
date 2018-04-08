@@ -44,8 +44,8 @@ public class AppRealm extends AuthorizingRealm {
         User user = userService.findByUsername(username);
         if (user != null) {
             SimpleAuthorizationInfo authcInfo = new SimpleAuthorizationInfo();
-            authcInfo.addRole("");
-            authcInfo.addStringPermission("");
+            authcInfo.addRole(user.getRole());
+            authcInfo.addStringPermission(user.getRole());
             return authcInfo;
         }
         return null;

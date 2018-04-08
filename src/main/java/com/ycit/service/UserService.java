@@ -2,6 +2,7 @@ package com.ycit.service;
 
 import com.ycit.bean.modal.User;
 import com.ycit.mapper.UserMapper;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -46,5 +47,10 @@ public class UserService {
     public User insert(User user) {
         userMapper.insert(user);
         return user;
+    }
+
+    public User getCurrent() {
+        String username = SecurityUtils.getSubject().getPrincipal().toString();
+        return  this.findByUsername(username);
     }
 }

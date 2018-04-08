@@ -4,7 +4,18 @@
 <%@ taglib prefix="sitemash" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<script type="text/javascript">
+    $(function () {
+        var navUsername = $("#nav-username").val();
+        if (navUsername !== "") {
+            utils.myAjax.get("/front/cart/count", {}, function (data) {
+                $("#badge").html(data);
+            })
+        }
+    })
+</script>
 <ul class="">
+    <input id="nav-username" type="hidden" value="<shiro:principal/>">
     <shiro:guest>
         <li class="menu login">
             <div class="menu-hd">
@@ -23,7 +34,8 @@
         <li class="pipe">|</li>
         <li class="menu cart">
             <div class="menu-hd">
-                <a href="${ctx}/front/login" target="_top">我的购物车</a>
+                <a href="${ctx}/front/login" target="_top">
+                    <i class="fa fa-shopping-cart" style="color: #FF0036; "></i>我的购物车</a>
             </div>
         </li>
     </shiro:guest>
@@ -59,13 +71,16 @@
         <li class="pipe">|</li>
         <li class="menu order ">
             <div class="menu-hd">
-                <a href="${ctx}/front/${user.id}/orders" target="_top">我的订单</a>
+                <a href="${ctx}/front/orders" target="_top">我的订单</a>
             </div>
         </li>
         <li class="pipe">|</li>
         <li class="menu cart">
             <div class="menu-hd">
-                <a href="${ctx}/front/${user.id}/cart" target="_top">我的购物车</a>
+                <a href="${ctx}/front/cart" target="_top">
+                    <i class="fa fa-shopping-cart" style="color: #FF0036; "></i>我的购物车
+                    <span id="badge" class="badge badge-default"></span>
+                </a>
             </div>
         </li>
     </shiro:authenticated>

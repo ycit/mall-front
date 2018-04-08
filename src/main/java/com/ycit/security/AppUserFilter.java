@@ -5,7 +5,6 @@ import org.apache.shiro.web.util.WebUtils;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -20,16 +19,19 @@ public class AppUserFilter extends UserFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest req, ServletResponse response) throws Exception {
-        HttpServletRequest request = (HttpServletRequest) req;
-
         HttpServletResponse httpResponse = WebUtils.toHttp(response);
-        httpResponse.setStatus(HttpServletResponse.SC_OK);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().printf(ERROR_JSON, request.getRequestURI());
-
+        httpResponse.sendRedirect("/front/login");
         return false;
+//        HttpServletRequest request = (HttpServletRequest) req;
+//
+//        HttpServletResponse httpResponse = WebUtils.toHttp(response);
+//        httpResponse.setStatus(HttpServletResponse.SC_OK);
+//
+//        response.setContentType("application/json");
+//        response.setCharacterEncoding("UTF-8");
+//        response.getWriter().printf(ERROR_JSON, request.getRequestURI());
+//
+//        return false;
     }
 
 }

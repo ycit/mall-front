@@ -6,8 +6,23 @@
         <pattern>/front/register</pattern>
     </excludes>
 
-    <decorator name="back" page="default.jsp">
+    <decorator name="index" page="default.jsp">
+        <pattern>/front/index</pattern>
+    </decorator>
+    <decorator name="goods" page="goods-default.jsp">
+        <pattern>/front/goodses</pattern>
+    </decorator>
+    <decorator name="store" page="store-default.jsp">
+        <pattern>/front/stores</pattern>
+    </decorator>
+    <decorator name="goodsDetail" page="goods-detail-default.jsp">
+        <pattern>/front/goodses/*/detail</pattern>
+        <pattern>/front/cart</pattern>
+        <pattern>/front/order/state</pattern>
+    </decorator>
+    <decorator name="search" page="search-default.jsp">
         <pattern>/front/**</pattern>
     </decorator>
+
 
 </decorators>

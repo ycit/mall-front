@@ -41,6 +41,7 @@
     <%--<link href="${ctx}/static/front/js/slider/reset.css" rel="stylesheet" type="text/css"/>--%>
     <%--<link href="${ctx}/static/front/js/site/site.css" rel="stylesheet" type="text/css"/>--%>
     <link href="${ctx}/static/front/css/custom.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/static/front/css/left.css" rel="stylesheet" type="text/css"/>
     <!-- END THEME LAYOUT STYLES -->
     <!-- END HEAD -->
     <script src="${ctx}/static/front/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -49,7 +50,7 @@
 
 </head>
 
-<body class="page-header-fixed page-container-bg-solid page-boxed" <sitemesh:getProperty property="body.id"
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" <sitemesh:getProperty property="body.id"
                                                                                          writeEntireProperty="true"/>>
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
@@ -77,7 +78,7 @@
 <div class="container">
     <div class="page-container">
         <div class="page-sidebar-wrapper">
-            <%@ include file="/WEB-INF/layout/left.jsp" %>
+            <%@ include file="/WEB-INF/layout/new-goods-left.jsp" %>
 
         </div>
         <!-- BEGIN CONTENT -->
@@ -95,6 +96,7 @@
 <!-- BEGIN CORE PLUGINS -->
 
 <script src="${ctx}/static/front/js/momentjs/moment.js" type="text/javascript"></script>
+<script src="${ctx}/static/front/js/underscore/underscore.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="${ctx}/static/front/js/slider/unslider-min.js" type="text/javascript"></script>

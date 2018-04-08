@@ -1,6 +1,6 @@
 package com.ycit.bean.modal;
 
-import com.ycit.bean.entity.RegForm;
+import com.ycit.bean.criteria.RegForm;
 import org.springframework.beans.BeanUtils;
 
 /**

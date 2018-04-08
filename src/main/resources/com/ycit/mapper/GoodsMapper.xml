@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ycit.mapper.GoodsMapper">
+    <select id="finds" resultType="com.ycit.bean.modal.Goods" parameterType="com.ycit.bean.criteria.GoodsSearchForm">
+        SELECT * FROM goods
+        <where>
+            <if test="searchForm.name != null">
+                AND name LIKE CONCAT(CONCAT('%', #{searchForm.name}),'%')
+            </if>
+            <if test="searchForm.brandId != null">
+                AND brand_id = #{searchForm.brandId}
+            </if>
+            <if test="searchForm.categoryId != null">
+                AND category_id = #{searchForm.categoryId}
+            </if>
+            <if test="searchForm.purposeId != null">
+                AND purpose_id = #{searchForm.purposeId}
+            </if>
+            <if test="searchForm.minPrice != null">
+                <![CDATA[
+                    AND price >= #{searchForm.minPrice}
+                ]]>
+            </if>
+            <if test="searchForm.maxPrice != null">
+                <![CDATA[
+                    AND price <= #{searchForm.maxPrice}
+                ]]>
+            </if>
+        </where>
+    </select>
+</mapper>

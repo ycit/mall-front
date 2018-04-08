@@ -1,0 +1,172 @@
+.preview img {
+    height: 100%;
+    width: 100%;
+}
+.page-content-wrapper .page-content {
+    margin-left: auto;
+}
+
+.sku-name{
+    font: 700 16px Arial,"microsoft yahei";
+    color: #666;
+    padding-top: 10px;
+    line-height: 28px;
+    margin-bottom: 5px;
+}
+
+.sale-info {
+    position: absolute;
+    z-index: 1;
+    right: 35px;
+    top: 49px;
+    color: #999;
+}
+
+.sale-count {
+    border-left: solid 1px #e6e6e6;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 15px;
+}
+
+.sale {
+    color: #999;
+}
+
+.count {
+    font: 14px verdana;
+}
+
+.summary {
+    padding: 10px 0 0;
+    background: #f3f3f3;
+}
+
+.info1 {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.dt {
+    line-height: 22px;
+    float: left;
+    padding-left: 10px;
+    font-family: simsun;
+    color: #999;
+}
+
+.dd {
+    margin-left: 80px;
+}
+
+.p-price {
+    color: #E4393C;
+    font-family: "microsoft yahei";
+    margin-right: 10px;
+}
+
+.p-price span {
+    font-size: 16px;
+}
+
+.price {
+    font-size: 22px;
+}
+.amount {
+    margin-top: 15px;
+}
+
+.amount em {
+    color: #878787;
+    margin-left: 1.2em;
+    font-style: normal;
+    display: inline;
+}
+
+.a-amount {
+    float: left;
+    margin-left: 17px;
+}
+
+.amount-input {
+    width: 80px;
+}
+
+.goods-action {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 70px;
+}
+
+.goods-action button {
+    margin-right: 10px;
+    float: left;
+    height: 46px;
+    line-height: 46px;
+    padding: 0 26px;
+    font-size: 18px;
+    font-family: "microsoft yahei";
+    background-color: #df3033;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #fff;
+}
+
+.goods-action button:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.goods-action button:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.no-post {
+    cursor: default;
+    background-color: #818181;
+    color: #fff;
+    border: 1px solid #818181;
+}
+
+.notice {
+    margin-left: 10px;
+}
+
+i {
+    color: #e73d4a;
+}
+
+.store-info{
+    margin: 10px 64px 0 0;
+}
+
+.store-info a {
+    color: #666;
+    text-decoration: none;
+}
+
+.store-info a:hover {
+    color: #C81623;
+}
+
+.alert-notice-wrap {
+    text-align: center;
+    position:fixed;
+    width:180px;
+    height:90px;
+    top:50%;
+    left:50%;
+    margin:-50px 0 0 -50px;
+    z-index:99;
+    background-color:#E1E1E1;
+}
+
+.alert-notice {
+    position: relative;
+    top: 25%;
+    bottom: 25%;
+}

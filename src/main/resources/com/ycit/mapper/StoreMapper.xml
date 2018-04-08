@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ycit.mapper.StoreMapper">
+    <select id="finds" resultType="com.ycit.bean.modal.Store" parameterType="com.ycit.bean.criteria.StoresSearchForm">
+        SELECT
+        s.*
+        FROM store s
+        inner join store_brand b
+        on s.id = b.store_id
+        <where>
+            <if test="searchForm.name != null">
+                AND s.name LIKE CONCAT(CONCAT('%', #{searchForm.name}),'%')
+            </if>
+            <if test="searchForm.brandId != null">
+                AND b.brand_id = #{searchForm.brandId}
+            </if>
+            <if test="searchForm.provinceId != null">
+                 AND s.province_id = #{searchForm.provinceId}
+            </if>
+            <if test="searchForm.cityId != null">
+                AND s.city_id = #{searchForm.cityId}
+            </if>
+        </where>
+        group by s.id, s.name, s.img, s.tel, s.province_id, s.province_name,
+        s.city_id, s.city_name, s.district_id, s.district_name, s.address_detail
+    </select>
+</mapper>
