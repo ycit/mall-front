@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ycit.mapper.OrderMapper">
+
+    <insert id="insert" parameterType="com.ycit.bean.modal.Order"
+            useGeneratedKeys="true" keyColumn="order.id" keyProperty="order.id">
+        insert into orders
+        (code, user_id, address_id, receive_name, price)
+        values (#{order.code}, #{order.userId}, #{order.addressId},
+        #{order.receiveName}, #{order.price})
+    </insert>
+
+    <select id="finds" resultType="com.ycit.bean.modal.Order" parameterType="com.ycit.bean.criteria.OrderSearchForm">
+        SELECT o.*
+        FROM orders o
+        inner join orders_goods g
+        on o.id = g.order_id
+        inner join user u
+        on o.user_id = u.id
+        <where>
+            <if test="searchForm.goodsName != null">
+                AND g.goods_name LIKE CONCAT(CONCAT('%', #{searchForm.goodsName}),'%')
+            </if>
+            <if test="searchForm.username != null">
+                AND u.username LIKE CONCAT(CONCAT('%', #{searchForm.username}),'%')
+            </if>
+            <if test="searchForm.status != null">
+                AND o.status = #{searchForm.status}
+            </if>
+            <if test="searchForm.startTime != null">
+                <![CDATA[
+                 AND o.create_time >= #{searchForm.startTime}
+                ]]>
+            </if>
+            <if test="searchForm.endTime != null">
+                <![CDATA[
+                 AND o.create_time <= #{searchForm.endTime}
+                ]]>
+            </if>
+        </where>
+        group by o.id,o.code,o.user_id,o.address_id,o.status,o.receive_name,o.price,
+             o.create_time,o.send_time,o.receive_time
+        order by o.create_time desc;
+    </select>
+
+</mapper>

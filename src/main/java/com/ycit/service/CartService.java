@@ -103,4 +103,8 @@ public class CartService {
     public int deleteBatch(String ids) {
         return cartMapper.deleteBatch(ids);
     }
+
+    public int deleteByUserAndGoods(int userId, int goodsId) {
+        return cartMapper.deleteByUserAndGoods(userId, goodsId);
+    }
 }

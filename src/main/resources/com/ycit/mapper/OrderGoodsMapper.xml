@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ycit.mapper.OrderGoodsMapper">
+
+    <insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true">
+        insert into orders_goods
+        (order_id, order_code, goods_id, goods_num, goods_price, goods_name, goods_img)
+        VALUES
+        <foreach collection="orderGoodsList" item="orderGoods" open="(" separator="," close=")">
+            (#{orderGoods.orderId}, #{orderGoods.orderCode}, #{orderGoods.goodsId},
+            #{orderGoods.goodsNum},#{orderGoods.goodsPrice}, #{orderGoods.goodsName},
+            #{orderGoods.goodsImg})
+        </foreach>
+    </insert>
+
+    <insert id="insert" parameterType="com.ycit.bean.modal.OrderGoods" useGeneratedKeys="true"
+            keyProperty="orderGoods.id" keyColumn="orderGoods.id">
+        insert into orders_goods
+        (order_id, order_code, goods_id, goods_num, goods_price, goods_name, goods_img)
+        VALUES
+        (#{orderGoods.orderId}, #{orderGoods.orderCode}, #{orderGoods.goodsId},
+        #{orderGoods.goodsNum},#{orderGoods.goodsPrice}, #{orderGoods.goodsName},
+        #{orderGoods.goodsImg})
+    </insert>
+
+</mapper>

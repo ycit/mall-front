@@ -27,7 +27,7 @@
             <div class="member-img">
                 <a class="member-home" href="javascript:;" target="_self">
                     <img style="border-radius: 50px !important;" class=""
-                         src="//wwc.alicdn.com/avatar/getAvatar.do?userNick=&amp;width=50&amp;height=50&amp;type=sns&amp;_input_charset=UTF-8">
+                         src="${user.img}">
                 </a>
             </div>
             <div class="member-nick-info">

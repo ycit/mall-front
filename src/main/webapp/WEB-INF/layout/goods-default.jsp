@@ -22,22 +22,27 @@
     <meta http-equiv="Expires" content="0"/>
 
     <link type="image/x-icon" href="${ctx}/static/front/img/favicon.ico" rel="shortcut icon">
-    <link href="${ctx}/static/front/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="${ctx}/static/front/assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/static/front/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="${ctx}/static/front/assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet"
+          type="text/css"/>
     <link href="${ctx}/static/front/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
           type="text/css"/>
-    <link href="${ctx}/static/front/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/static/front/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
     type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="${ctx}/static/front/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="${ctx}/static/front/assets/global/css/components.min.css" rel="stylesheet" id="style_components"
+          type="text/css"/>
     <link href="${ctx}/static/front/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css"/>
     <!-- END THEME GLOBAL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
     <link href="${ctx}/static/front/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css"/>
-    <link href="${ctx}/static/front/assets/layouts/layout/css/themes/light2.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="${ctx}/static/front/assets/layouts/layout/css/themes/light2.css" rel="stylesheet" type="text/css"
+          id="style_color"/>
     <link href="${ctx}/static/front/js/slider/unslider.css" rel="stylesheet" type="text/css"/>
     <link href="${ctx}/static/front/js/city-picker/css/city-picker.css" rel="stylesheet" type="text/css"/>
     <%--<link href="${ctx}/static/front/js/slider/reset.css" rel="stylesheet" type="text/css"/>--%>
@@ -47,22 +52,26 @@
     <!-- END THEME LAYOUT STYLES -->
     <!-- END HEAD -->
     <script src="${ctx}/static/front/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-    <script src="${ctx}/static/front/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="${ctx}/static/front/assets/global/plugins/bootstrap/js/bootstrap.min.js"
+            type="text/javascript"></script>
     <sitemesh:head/>
 
 </head>
 
-<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" <sitemesh:getProperty property="body.id"
-                                                                                         writeEntireProperty="true"/>>
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" <sitemesh:getProperty
+        property="body.id"
+        writeEntireProperty="true"/>>
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
     <!-- BEGIN HEADER INNER -->
     <div class="page-header-inner container">
         <!-- BEGIN LOGO -->
-        <div class="page-logo">
-            <img src="${ctx}/static/front/img/cart.jpg" alt="logo" class="logo-default"/>
-        </div>
-        <div class="site-title" style="color: red">电池在线销售平台</div>
+        <a href="${ctx}/front/index">
+            <div class="page-logo">
+                <img src="${ctx}/static/front/img/cart.jpg" alt="logo" class="logo-default"/>
+            </div>
+            <div class="site-title" style="color: red">电池在线销售平台</div>
+        </a>
         <!-- END LOGO -->
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->
         <%--<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>--%>
@@ -80,7 +89,7 @@
 <div class="container">
     <div class="page-container">
         <div class="page-sidebar-wrapper">
-             <%@ include file="/WEB-INF/layout/hot-goods-left.jsp" %>
+            <%@ include file="/WEB-INF/layout/hot-goods-left.jsp" %>
 
         </div>
         <!-- BEGIN CONTENT -->
@@ -97,7 +106,8 @@
 <!-- END FOOTER -->
 <!-- BEGIN CORE PLUGINS -->
 <script src="${ctx}/static/front/assets/global/plugins/bootstrap/js/tooltip.js" type="text/javascript"></script>
-<script src="${ctx}/static/front/assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
+<script src="${ctx}/static/front/assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js"
+        type="text/javascript"></script>
 <%--<script src="${ctx}/static/front/assets/pages/scripts/portfolio-1.min.js" type="text/javascript"></script>--%>
 <script src="${ctx}/static/front/js/momentjs/moment.js" type="text/javascript"></script>
 <script src="${ctx}/static/front/js/underscore/underscore.js" type="text/javascript"></script>

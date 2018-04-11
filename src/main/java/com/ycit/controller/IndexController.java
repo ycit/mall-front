@@ -44,6 +44,11 @@ public class IndexController {
         this.goodsService = goodsService;
     }
 
+    /**
+     * 用户首页
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String home( Model model) {
         model.addAttribute("newses", newsService.findTopN(5));

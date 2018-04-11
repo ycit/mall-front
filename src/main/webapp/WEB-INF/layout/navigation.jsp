@@ -8,9 +8,16 @@
     $(function () {
         var navUsername = $("#nav-username").val();
         if (navUsername !== "") {
+            utils.myAjax.get("/front/users/self", {}, function (data) {
+                if (data.img !== null) {
+                    $("#user-img").attr("src", data.img);
+                } else {
+                    $("#user-img").attr("src", "/static/front/img/user.jpg");
+                }
+            });
             utils.myAjax.get("/front/cart/count", {}, function (data) {
                 $("#badge").html(data);
-            })
+            });
         }
     })
 </script>
@@ -47,14 +54,14 @@
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                                data-close-others="true">
-                                <img alt="" class="img-circle"
-                                     src="${ctx}/static/front/assets/layouts/layout/img/avatar3_small.jpg">
+                                <img id="user-img" alt="" class="img-circle"
+                                     src="">
                                 <span class="username username-hide-on-mobile"> <shiro:principal/> </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="page_user_profile_1.html">
+                                    <a href="${ctx}/front/users/info">
                                         <i class="icon-user"></i> 个人信息 </a>
                                 </li>
                                 <li class="divider"></li>

@@ -2,6 +2,7 @@ package com.ycit.security;
 
 import com.ycit.bean.modal.User;
 import com.ycit.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -55,9 +56,10 @@ public class AppRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken upToken = (UsernamePasswordToken) token;
         User user= userService.findByUsername(upToken.getUsername());
+        String pw = userService.findPwByUsername(upToken.getUsername());
         LOGGER.debug("upToken is ======{}", ((UsernamePasswordToken) token).getUsername());
-        if (user != null) {
-            return new SimpleAuthenticationInfo(upToken.getUsername(), user.getPassword(), getName());
+        if (StringUtils.isNotBlank(pw)) {
+            return new SimpleAuthenticationInfo(upToken.getUsername(), pw, getName());
         }
         return null;
     }

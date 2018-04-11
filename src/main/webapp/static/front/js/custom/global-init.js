@@ -1,4 +1,12 @@
 $(function () {
+
+    Handlebars.registerHelper("time", function(value) {
+        if (typeof value !== "number") {
+            return "";
+        }
+        return moment(value).format('YYYY-MM-DD HH:mm');
+    });
+
     Handlebars.registerHelper("compare",function (left, operator, right, options) {
         if (arguments.length < 3) {
             throw new Error('Handlerbars Helper "compare" needs 2 parameters');

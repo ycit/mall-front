@@ -27,7 +27,7 @@ $(function () {
                 };
                 utils.myAjax.post("/front/cart/add", params, function (data) {
                     $(".alert-notice-wrap").removeClass("hide");
-                    setTimeout("$(\".alert-notice-wrap\").addClass(\"hide\")", 1000)
+                    setTimeout("$(\".alert-notice-wrap\").addClass(\"hide\")", 1000);
                     if (data.exist === 0) {
                         var cartCount = $("#badge").html();
                         $("#badge").html(parseInt(cartCount) + 1);

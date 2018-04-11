@@ -46,4 +46,7 @@ public interface CartMapper {
     @Delete("delete from cart where id in (${ids})")
     int deleteBatch(@Param("ids")String ids);
 
+    @Delete("delete from cart where user_id = #{userId} and goods_id = #{goodsId}")
+    int deleteByUserAndGoods(@Param("userId")int userId, @Param("goodsId")int goodsId);
+
 }

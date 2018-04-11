@@ -7,7 +7,7 @@
 <!--[if !IE]><!-->
 <html class="no-js">
 <head>
-    <title>商品详情</title>
+    <title>购物车</title>
     <meta charset="utf-8">
     <link href="${ctx}/static/front/css/cart.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -168,6 +168,9 @@
                 {{#each cartVos}}
                 <div class="item-full">
                     <input class="cart-id" type="hidden" value="{{id}}">
+                    <input class="goods-id" type="hidden" value="{{goods.id}}">
+                    <input class="goods-name" type="hidden" value="{{goods.name}}">
+                    <input class="goods-img" type="hidden" value="{{goods.img}}">
                     <input class="goods-price" type="hidden" value="{{goods.price}}">
                     <input class="goods-stock" type="hidden" value="{{goods.stock}}">
                     <div class="item">

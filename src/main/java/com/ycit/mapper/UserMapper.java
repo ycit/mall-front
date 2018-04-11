@@ -33,4 +33,23 @@ public interface UserMapper {
     @Options(useGeneratedKeys = true, keyProperty = "user.id", keyColumn = "user.id")
     int insert(@Param("user")User user);
 
+    @Update("update user set balance = balance - #{cost} where balance >= #{cost} and id = #{id}")
+    int updateBalanceById(@Param("id")int id, @Param("cost")int cost);
+
+    @Update("update user set nickname = #{user.nickname}, sex = #{user.sex}," +
+            "birthday = #{user.birthday}, modify_time = sysdate() where id = #{user.id}")
+    int updateById(@Param("user")User user);
+
+    @Update("update user set img = #{img} where id = #{id}")
+    int updateImg(@Param("id")int id, @Param("img")String img);
+
+    @Select("select password from user where id = #{id}")
+    String findPwById(@Param("id")int id);
+
+    @Update("update user set password = #{pw} where id = #{id}")
+    int updatePwById(@Param("id")int id, @Param("pw")String pw);
+
+    @Select("select password from user where username = #{username}")
+    String findPwByUsername(@Param("username")String username);
+
 }

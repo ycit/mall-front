@@ -58,11 +58,12 @@ public class LoginController {
     }
 
     @RequestMapping("/logout")
-    public void logout() {
+    public String logout() {
         Subject currentUser = SecurityUtils.getSubject();
         if (currentUser.isAuthenticated()) {
             currentUser.logout();
         }
+        return "redirect:/front/login";
     }
 
 }

@@ -383,7 +383,8 @@ $(function () {
     //结算
     $(".result").on("click", ".submit-btn", function () {
         //是否选择商品判断
-        var goodsNum = $(".item-checkbox:checked").length;
+        var selectedGoodsSelector = $(".item-checkbox:checked");
+        var goodsNum = selectedGoodsSelector.length;
         if (goodsNum < 1) {
             utils.modal.myAlert("请选择商品再结算");
             return;
@@ -403,10 +404,46 @@ $(function () {
         // 余额判断
         var payPrice = $(".sumPrice").find("em").html().replace(/[^0-9]/ig, "");
         var balance = $(".myBalance").html().replace(/[^0-9]/ig, "");
-        if (payPrice > balance) {
+        if (parseInt(payPrice) > parseInt(balance)) {
             utils.modal.myAlert("余额不足，无法结算");
             return;
         }
+        var goodsArray = [];
+        _.forEach(selectedGoodsSelector, function (checkbox) {
+            var goodsNum = $(checkbox).parents(".item-full").find(".goods-count").val();
+            var goodsPrice = $(checkbox).parents(".item-full").find(".p-price").find("strong").html().replace(/[^0-9]/ig, "");
+            var totalPrice = $(checkbox).parents(".item-full").find(".total-price").html().replace(/[^0-9]/ig, "");
+            var goodsId = $(checkbox).parents(".item-full").find(".goods-id").val();
+            var goodsName = $(checkbox).parents(".item-full").find(".goods-name").val();
+            var goodsImg = $(checkbox).parents(".item-full").find(".goods-img").val();
+            var goods = {
+                goodsId:goodsId, goodsNum:goodsNum, goodsPrice:goodsPrice,
+                goodsName:goodsName, goodsImg:goodsImg
+            };
+            goodsArray.push(goods);
+        });
+        var addressId = $(".result").find(".item-selected").parents("li.address-li").find(".address-id").val();
+        var username = $(".result").find(".item-selected").find("span").html(); // 收货人
+        var order = {
+            price:payPrice, addressId:addressId,receiveName:username,
+            goodsList:goodsArray
+        };
+        $.ajax({
+            url:"/front/order/state",
+            type:"post",
+            contentType:"application/json",
+            dataType:"json",
+            data:JSON.stringify(order),
+            success: function (data) {
+                if (data.code == 200) {
+                    window.location.href = "/front/orders";
+                } else {
+                    utils.modal.myAlert(data.message);
+                }
+            }
+        })
+
+
     });
 
 });

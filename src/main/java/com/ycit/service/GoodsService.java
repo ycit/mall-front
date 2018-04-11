@@ -40,4 +40,8 @@ public class GoodsService {
         return goodsMapper.findById(id);
     }
 
+    public int updateStockAndSaleCountById(int id, int buyNum) {
+        return goodsMapper.updateStockAndSaleCountById(id, buyNum);
+    }
+
 }

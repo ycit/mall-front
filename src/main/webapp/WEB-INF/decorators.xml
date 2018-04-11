@@ -18,7 +18,8 @@
     <decorator name="goodsDetail" page="goods-detail-default.jsp">
         <pattern>/front/goodses/*/detail</pattern>
         <pattern>/front/cart</pattern>
-        <pattern>/front/order/state</pattern>
+        <pattern>/front/orders</pattern>
+        <pattern>/front/users/info</pattern>
     </decorator>
     <decorator name="search" page="search-default.jsp">
         <pattern>/front/**</pattern>
